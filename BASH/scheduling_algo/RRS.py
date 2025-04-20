@@ -1,47 +1,62 @@
-# Get the number of processes
+from collections import deque
+
 n = int(input('Enter number of processes: '))
-# Get the arrival times for each process
 at = list(map(int, input(f'Enter arrival times for {n} processes: ').split()))
-# Get the burst times for each process
 bt = list(map(int, input(f'Enter burst times for {n} processes: ').split()))
-# Get the time quantum
 tq = int(input('Enter time quantum: '))
 
-# Initialize remaining burst times, current time, waiting times, and turnaround times
 remaining_bt = bt.copy()
-t = 0
 wt = [0] * n
 tat = [0] * n
+ct = [0] * n
+queue = deque()
+t = 0
+i = 0
+visited = [False] * n
 
-# Loop until all processes are done
-while True:
-    done = True
-    for i in range(n):
-        if remaining_bt[i] > 0:
-            done = False
-            if remaining_bt[i] > tq:
-                # Process is not finished, increment time and reduce remaining burst time
-                t += tq
-                remaining_bt[i] -= tq
-            else:
-                # Process is finished, increment time and calculate waiting time
-                t += remaining_bt[i]
-                wt[i] = t - bt[i] - at[i]
-                remaining_bt[i] = 0
-    if done:
-        break
+while i < n and at[i] <= t:
+    queue.append(i)
+    visited[i] = True
+    i += 1
 
-# Calculate turnaround times
+while queue:
+    current = queue.popleft()
+    exec_time = min(tq, remaining_bt[current])
+    
+    t += exec_time
+    remaining_bt[current] -= exec_time
+
+    if remaining_bt[current] > 0:
+        queue.append(current)
+    else:
+        ct[current] = t
+        tat[current] = ct[current] - at[current]
+        wt[current] = tat[current] - bt[current]
+
+    while i < n and at[i] <= t:
+        if not visited[i]:
+            queue.append(i)
+            visited[i] = True
+        i += 1
+
+print('Process\tBurst Time\tWaiting Time\tTurnaround Time')
 for i in range(n):
-    tat[i] = bt[i] + wt[i]
+    print(f'{i+1}\t{bt[i]}\t\t{wt[i]}\t\t{tat[i]}')
 
-# Print the results
-print('Process	Burst Time	Waiting Time	Turnaround Time')
-for i in range(n):
-    print(f'{i+1}	{bt[i]}		{wt[i]}		{tat[i]}')
-
-# Calculate and print average waiting time and turnaround time
 avg_wt = sum(wt) / n
 avg_tat = sum(tat) / n
 print(f'Average Waiting Time: {avg_wt}')
 print(f'Average Turnaround Time: {avg_tat}')
+
+
+
+"""
+Round Robin Scheduling (RRS) is a preemptive CPU scheduling algorithm designed for time-sharing systems.
+Each process is assigned a fixed time quantum in a cyclic order. If a process does not finish execution
+within its time quantum, it is placed at the end of the queue, and the CPU moves to the next process.
+
+RRS ensures fair allocation of CPU time to all processes, preventing starvation and improving response time,
+especially for short jobs. However, if the time quantum is too small, it may lead to excessive context switching.
+If too large, it behaves like First-Come-First-Served (FCFS). Choosing the right time quantum is key to achieving
+a balance between responsiveness and efficiency.
+"""

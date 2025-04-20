@@ -46,3 +46,18 @@ for i in range(n):
 print("-" * 50)
 print(f"\nAverage waiting time = {total_wt / n:.2f}")
 print(f"Average turnaround time = {total_tat / n:.2f}")
+
+
+
+
+"""
+SRTF (Shortest Remaining Time First) is a preemptive CPU scheduling algorithm that
+always selects the process with the shortest remaining burst time among the available
+processes at the current time. Unlike non-preemptive SJF, SRTF allows a new shorter
+process to preempt the currently running one.
+
+This approach reduces average waiting and turnaround time even further compared to
+SJF, making it optimal in many scenarios. However, it may lead to starvation of
+longer processes if shorter ones keep arriving. SRTF is best suited for environments
+where process burst times are known or can be estimated accurately.
+"""
