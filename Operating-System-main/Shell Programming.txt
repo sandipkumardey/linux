@@ -1,0 +1,67 @@
+1. nano abc.sh  [ this is for create shell file ]
+2. To save and exit Ctrl +s and Ctrl + x
+3. To run the file sh add.sh
+4. To return to the same file use nano add.sh
+
+Q1. Write a shell program to perform the addition of two Integer
+
+ * Do not put space after the variable and before the value
+ a=10
+ b=20
+ c=$((a+b))
+ echo "result = $c"
+
+ * For interactive programming ( it will take input through terminal )
+echo "Enter value for a"
+read a
+echo "Enter value for b"
+read b
+c=$((a+b))
+echo "result = $c"
+echo "Result=" ${c}
+
+Q2. Average of three number
+echo "Enter 1st number"
+read num1
+echo "Enter 2nd number"
+read num2
+echo "Enter 3rd number"
+read num3
+c=$(((num1+num2+num3)/3))
+
+echo "Average of three number  $c"
+
+Q3. Simple interest where P =  R = and T =  take input from the user
+  GNU nano 7.2                          add.sh
+echo "Enter P"
+read p
+echo "Enter T "
+read t
+echo "Enter R"
+read r
+c=$(((p*t*r)/100))
+
+echo " Simple interest is $c"
+
+Q4.  Swap of two integer using three variables
+read -p  "Enter two number" a b
+echo "A = $a"
+echo "B = $b"
+c=$a
+a=$b
+b=$c
+echo "A = $a"
+echo "B = $b"
+
+Q5. Swapping of two number using two operator
+
+read -p  "Enter two number" a b
+echo "A = $a"
+echo "B = $b"
+
+a=$((a^b))
+b=$((a^b))
+a=$((a^b))
+echo "A = $a"
+echo "B = $b"
+
