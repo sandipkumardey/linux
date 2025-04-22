@@ -1,0 +1,37 @@
+SRTF-- wt and tat in preemtive
+FCFS-- wt and tat in non-preemptive
+priority based scheduling-- how would you handle situations where two tasks have the same priority?
+SJF-- wt and tat
+---------------------
+
+---------------------
+script to display all the files and directories in the current directory in tree structure
+script to find the largest of three numbers entered by the user
+
+
+script that prompts the user to enter a month and outputs the number of days. also check whther the year is leap year or not and output accordingly
+description and syntax of unix commands- cat, ls -l, who, date and time, we
+
+
+script for a menu driven program using case to find- 1. whether the number is positive, negative or zero 2.display factorial 3.exit the program
+description and syntax of unix commands- bc, whoami, cp, mkdir, cd
+
+
+script to display the pattern
+*****
+*****
+*****
+*****
+script to print the reverse of a number using while loop
+
+
+script to find fibonacci series upto certain limit
+script to check a given number is divisible by both 3 and 5
+
+
+script to determine a given year is leap year or not
+description and syntax of unix commands- bc, whoami, cp, mkdir, cd
+
+
+script to find the factorial of a given number
+print the odd natural number upto certain limit

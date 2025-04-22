@@ -1,0 +1,44 @@
+Command: cat
+Description: Concatenate and display the content of files.
+Syntax: cat [options] [file...]
+
+Command: ls -l
+Description: List directory contents in long format (with details like permissions, size, date).
+Syntax: ls -l [directory]
+
+Command: who
+Description: Show who is logged on.
+Syntax: who
+
+Command: date
+Description: Display or set the system date and time.
+Syntax: date
+
+Command: time
+Description: Time the execution duration of a command or script.
+Syntax: time [command]
+
+Command: we
+Description: This appears to be a typo or incorrect command. Possibly meant 'w' (show who is logged in and what they are doing).
+Syntax: w
+
+Command: bc
+Description: An arbitrary precision calculator language.
+Syntax: echo 'expression' | bc
+
+Command: whoami
+Description: Print the current user ID.
+Syntax: whoami
+
+Command: cp
+Description: Copy files and directories.
+Syntax: cp [options] source destination
+
+Command: mkdir
+Description: Create new directories.
+Syntax: mkdir [options] directory_name
+
+Command: cd
+Description: Change the current directory.
+Syntax: cd [directory]
+
